@@ -48,8 +48,11 @@ trace("in registrationFormDoc: 2");
 trace("in registrationFormDoc: 3");
 			 
 			loader = new URLLoader();
+trace("in registrationFormDoc: 4");
 			loader.dataFormat = dataFormat;
+trace("in registrationFormDoc: 5");
 			loader.addEventListener(Event.COMPLETE, handleResponse);
+trace("in registrationFormDoc: 6");
 		}	// End Function registrationFormDoc
 		
 		public function mDown(ev:Event) {
