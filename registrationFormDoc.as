@@ -6,7 +6,8 @@
 	import flash.events.Event;
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
-	
+	import flash.events.TextEvent;
+	import flash.events.FocusEvent;
 	
 	import flash.net.URLLoaderDataFormat;		//format for the data coming back from the server
 	import flash.net.URLRequestMethod;			//method for sending data to the server
@@ -33,6 +34,11 @@
 			regForm_mc.submitButton_mc.addEventListener(MouseEvent.MOUSE_DOWN, mDown);
 			regForm_mc.submitButton_mc.addEventListener(MouseEvent.MOUSE_UP, mUp);
 			regForm_mc.submitButton_mc.addEventListener(MouseEvent.CLICK, validate);
+			regForm_mc.firstName_txt.addEventListener(FocusEvent.FOCUS_OUT, namOut);
+			regForm_mc.lastName_txt.addEventListener(FocusEvent.FOCUS_OUT, namOut); 			
+			regForm_mc.eMail_txt.addEventListener(FocusEvent.FOCUS_OUT, mailOut); 			
+			regForm_mc.password1_txt.addEventListener(FocusEvent.FOCUS_OUT, pwOut); 		
+			regForm_mc.password2_txt.addEventListener(FocusEvent.FOCUS_OUT, pwOut);
 	
 			//set up the password fields to hide the input
 			regForm_mc.password1_txt.displayAsPassword  = true;
@@ -60,6 +66,32 @@
 			
 		}	// End Function registrationFormDoc
 		
+		public function namOut(ev:FocusEvent) {
+			//visual effect
+			//check the user has something in the firstname field
+			trace( ev.type, ev.keyCode, ev.currentTarget, ev.target.name, ev.type);
+			trace("You typed ", ev.target.text );
+//			if( regForm_mc.firstName_txt.text !=  null  &&  formData.first_name.length > 0 ) {
+//					regForm_mc.fnOk_mc.visible = true;
+//					regForm_mc.fnNok_mc.visible = false;
+//				}else{
+//				errors.push('firstName');
+//				errorTxt = errorTxt  +  "You must provide a First Name.\n";
+//				errorTxt += "You must provide a First Name.\n";
+//				}// endelse
+
+		}	// End Function namOut
+	
+		public function mailOut(ev:Event) {
+			//visual effect
+
+		}	// End Function mailOut
+	
+		public function pwOut(ev:Event) {
+			//visual effect
+
+		}	// End Function pwOut
+	
 		public function mDown(ev:Event) {
 			//visual effect
 
@@ -181,3 +213,37 @@
 	}	// End class registrationFormDoc
 	
 }	// End package
+
+
+
+//package  {
+//	import flash.display.MovieClip
+//	import flash.events.TextEvent;
+//	import flash.events.FocusEvent;
+//	
+//	public class afsdfsdfa extends MovieClip{
+//
+//		public function afsdfsdfa() {
+//			// constructor code
+//			my_txt.addEventListener(TextEvent.TEXT_INPUT, abc);
+//			my_txt.addEventListener(FocusEvent.FOCUS_IN, def);
+//			my_txt.addEventListener(FocusEvent.FOCUS_OUT, ghi);
+//		}
+//		
+//		public function abc(ev:TextEvent):void{
+//			trace( ev.type, ev.text, ev.target);
+//		}
+//		
+//		public function def(ev:FocusEvent):void{
+//			trace( ev.type, ev.keyCode, ev.target);
+//		}
+//		
+//		public function ghi(ev:FocusEvent):void{
+//			trace( ev.type, ev.keyCode, ev.target);
+//			trace("You typed ", ev.target.text );
+//		}
+//		
+//
+//	}
+//	
+//}
