@@ -18,7 +18,7 @@
 		private var req:URLRequest;
 		private var loader:URLLoader;
 		private var page:String = "registerUser.php";	//the php page that will handle the response
-		private var dataFormat:String = URLLoaderDataFormat.VARIABLES; // or .BINARY  or .TEXT		message=something&other=more&name=bob
+		private var dataFormat:String = URLLoaderDataFormat.TEXT; // or .BINARY  or .TEXT		message=something&other=more&name=bob
 		private	var formData:URLVariables = new URLVariables();
 		private	var errors:Array;
 		
@@ -30,7 +30,7 @@ trace("in registrationFormDoc: ");
 			//regForm_mc.submitButton is the button to click to send the data
 			//regForm_mc.response_txt is the field which will hold the response from the server
 //			regForm_mc.submitButton.buttonMode = true;
-			regForm_mc.submitButton_mc.buttonMode = true;
+//			regForm_mc.submitButton_mc.buttonMode = true;
 			regForm_mc.submitButton_mc.addEventListener(MouseEvent.MOUSE_DOWN, mDown);
 trace("in registrationFormDoc: 0");
 			regForm_mc.submitButton_mc.addEventListener(MouseEvent.MOUSE_UP, mUp);
@@ -156,12 +156,12 @@ trace("in function sendData: ");
 		public function handleResponse(ev:Event):void{
 trace("in function handleResponse: ");
 			//the xml data is back from the web server
-			var vars:URLVariables = ev.target.data;	//loaderDataFormat.VARIABLES
-trace(vars);
-			//var data:XML = XML( ev.target.data );				//loaderDataFormat.TEXT
+			// var vars:URLVariables = ev.target.data;	//loaderDataFormat.VARIABLES
+//trace(vars);
+			var data:XML = XML( ev.target.data );				//loaderDataFormat.TEXT
 			//var data:JSON = JSON( ev.target.data);			//loaderDataFormat.TEXT
 			//trace( vars );
-			regForm_mc.response_txt.text = vars.message;			//    message=way to go!
+			regForm_mc.response_txt.text = data..message;			//    message=way to go!
 			//write the message into the feedback field
 			
 		}	// End Function handleResponse

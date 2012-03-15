@@ -57,7 +57,7 @@ if( isset($_REQUEST['first_name']) && isset($_REQUEST['last_name']) && isset($_R
 		$pw = hash_hmac('sha1', $pw, SALT);
 		
 		$strSQL = "INSERT INTO mtm1525_users(first_name, last_name, email, pwd)
-							VALUES('$fn', '$ln', '$email', '$pw') ";
+							VALUES('$fn', '$ln', '$em', '$pw') ";
 		$ret = mysqli_query($link, $strSQL);
 		if($ret){
 			echo '<data>
